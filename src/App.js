@@ -1,6 +1,7 @@
 import React from 'react';
 // import Typography from '@material-ui/core/Typography'; 
-import NavBar from './components/NavBar/NavBar'
+import NavBar from './Components/NavBar/NavBar';
+import ItemListContainer from './Components/ItemListContainer/ItemListContainer'
 
 // const useStyle = makeStyles({
 //   myButton: {
@@ -18,6 +19,7 @@ function App() {
   return (
     <div>
       <NavBar/>
+      <ItemListContainer text="Proximamente en mi proyecto"/>
     </div>
   );
 }
