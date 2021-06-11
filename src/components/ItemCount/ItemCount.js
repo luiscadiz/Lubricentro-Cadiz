@@ -13,14 +13,14 @@ export const ItemCount = () => {
 
     const classes = useStyle();
     return <Contador>
-        {(count,inicial, stock) => (
+        {(count,desencrementar, incrementar) => (
             <>
             <div className={classes.container}>
-                <Button onClick={inicial} variant="contained" color="secondary" >
+                <Button onClick={incrementar} variant="contained" color="secondary" >
                     <Typography variant='h2'>-</Typography>
                 </Button>
                 <Typography variant='h2'>{count}</Typography>
-                <Button onClick={stock} variant="contained" color="secondary" >
+                <Button onClick={desencrementar} variant="contained" color="secondary" >
                     <Typography variant='h2'>+</Typography>
                 </Button>
             </div>
