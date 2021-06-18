@@ -1,32 +1,31 @@
-import { Contador } from "./Contador"
+// import { Contador } from "./Contador"
 import {Button, makeStyles, Typography } from '@material-ui/core'
+import { useState } from 'react';
 
 const useStyle = makeStyles(theme => ({
     container: {
         display: 'flex',
+    },
+    addCarrito:{
+        flexDirection:'column'
     }
 }))
 
+export const ItemCount = ({stock,initial,onAdd}) => {
 
-//Ver como realizar la logica para con las render props
-export const ItemCount = () => {
+    const [count,setCount] = useState(initial);
+    const incrementar = () => count < stock? setCount(count+1): console.log('No hay Stock de productos');
+    const desincrementar = () => count !== 0? setCount(count-1): console.log('No se puede agregar valoresn negativos');
 
     const classes = useStyle();
-    return <Contador>
-        {(count,desencrementar, incrementar) => (
-            <>
-            <div className={classes.container}>
-                <Button onClick={incrementar} variant="contained" color="secondary" >
-                    <Typography variant='h2'>-</Typography>
-                </Button>
-                <Typography variant='h2'>{count}</Typography>
-                <Button onClick={desencrementar} variant="contained" color="secondary" >
-                    <Typography variant='h2'>+</Typography>
-                </Button>
-            </div>
-            <Button variant="contained" color="primary"><Typography >Agregar al carrito</Typography></Button>
-            </>
-        )}
-        
-    </Contador>
+    return <div className={classes.container}>
+        <Button onClick={desincrementar} variant='contained' color='secondary'>
+            <Typography variant='h4'>-</Typography>
+        </Button>
+        <Typography variant='h4'>{ count }</Typography>
+        <Button onClick={incrementar} variant='contained' color='secondary'>
+            <Typography variant='h4'>+</Typography>
+        </Button>
+        <Button onClick={()=>onAdd(count)} className={classes.addCarrito}>Agregar al Carrito</Button>
+    </div>
 }

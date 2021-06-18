@@ -17,7 +17,6 @@ function App() {
     <div>
       <NavBar/>
       <ItemListContainer text="Proximamente en mi proyecto"/> 
-      <ItemCount />
     </div>
   );
 }
